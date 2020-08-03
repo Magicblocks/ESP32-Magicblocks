@@ -1,9 +1,9 @@
-# ESP32_MB_Core
+# ESP32 Arduino Library for Magicblocks.io
 Arduino library for ESP32 devices to connect to magicblocks.io
 
 ## Description
 
-This is a Arduino library to manage connections and configurations for ESP32 based boards to connect to the [Magicblocks.io](http://magicblocks.io) platform. Magicblocks has the following standard blocks in the cloud platform which can be used with all ESP32 based boards
+This is a Arduino library to manage connections and configurations for ESP32 based boards to connect to the [Magicblocks.io](http://magicblocks.io) platform. Magicblocks has the following standard blocks in its cloud platform which can be used with all ESP32 based boards
 * **Digital Out** - Drive pins HIGH or LOW from the cloud**
 * **Digital In** - Read pin status from the cloud
 * **Analog In** - Read ADC values from the cloud
