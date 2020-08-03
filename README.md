@@ -4,18 +4,18 @@ Arduino library for ESP32 devices to connect to magicblocks.io
 ## Description
 
 This is a Arduino library to manage connections and configurations for ESP32 based boards to connect to the [Magicblocks.io](http://magicblocks.io) platform. Magicblocks has the following standard blocks in the cloud platform which can be used with all ESP32 based boards
-* Digital Out - Drive pins HIGH or LOW from the cloud
-* Digital In - Read pin status from the cloud
-* Analog In - Read ADC values from the cloud
-* Analog Out - Control PWM/DAC outputs from the cloud
-* Serial In - Asynchronously receive any upstream data received on the Serial port of the ESP32 device from the cloud. By default the 'Serial' is set as the default port. This can be changed to Serial2 by setting #define MB_SERIAL Serial2 in Drivers.h. By default baud rate is set to 115200. This will be changed automatically if any data is sent downstream using the 'Serial Out' block
-* Serial Out - Send downstream data to the Serial port defined as MB_SERIAL in Drivers.h on a selected baud rate from 4800 to 115200
-* Payload In - Custom data sent upstream by calling the 'sendPayload' function in the device library can be received on the cloud end via this block
+* **Digital Out** - Drive pins HIGH or LOW from the cloud**
+* **Digital In** - Read pin status from the cloud
+* **Analog In** - Read ADC values from the cloud
+* **Analog Out** - Control PWM/DAC outputs from the cloud
+* **Serial In** - Asynchronously receive any upstream data received on the Serial port of the ESP32 device from the cloud. By default the 'Serial' is set as the default port. This can be changed to Serial2 by setting #define MB_SERIAL Serial2 in Drivers.h. By default baud rate is set to 115200. This will be changed automatically if any data is sent downstream using the 'Serial Out' block
+* **Serial Out** - Send downstream data to the Serial port defined as MB_SERIAL in Drivers.h on a selected baud rate from 4800 to 115200
+* **Payload In** - Custom data sent upstream by calling the 'sendPayload' function in the device library can be received on the cloud end via this block
 ```C
 ESP32_MB_Core device;
 device.sendPayload("HELLO",5);
 ```
-* Payload Out - Custom data can be sent downstream from the cloud using this block. The .ino file should implement the following function as the callback for such custom downstream payloads.
+* **Payload Out** - Custom data can be sent downstream from the cloud using this block. The .ino file should implement the following function as the callback for such custom downstream payloads.
 ```C
 void onCustomPayload(char* payload,int length){
  
