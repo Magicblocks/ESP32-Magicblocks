@@ -51,7 +51,7 @@ void loop(){
 All the complexity of credential management, connection management is handled by the platform. To get started, follow the few steps below:
 * Download or clone the library to Arduino libraries folder
 * Create a new project in Arduino
-* Copy past the above sample code to the Arduino project
+* Copy paste the above sample code to the Arduino project
 * Upload the code to a ESP32 based board. Subsequently when the device is started up, it would show a WiFi access point "ESP-MB" 
 * Connect to "ESP-MB" access point and open the config page [http://192.168.4.1](http://192.168.4.1) in the browser
 * Select the WiFi access point and set the password
