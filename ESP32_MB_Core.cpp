@@ -56,6 +56,15 @@ void ESP32_MB_Core::init() {
 
 bool ESP32_MB_Core::wifiInit() {
   if (strlen(mConfig.ssid) > 0 && strlen(mConfig.wifiPassword) > 0) {
+      int nwCount = WiFi.scanNetworks();   
+    bool ssidFound=false;
+    for(int i=0;i<nwCount;i++){    
+      if(strcmp(mConfig.ssid,WiFi.SSID(i).c_str())==0){
+        ssidFound=true;
+      }
+    }
+    if(!ssidFound)
+      return false;
     unsigned long start = millis();
     Serial.print("Connecting to ");
     Serial.println(mConfig.ssid);
@@ -129,8 +138,7 @@ void ESP32_MB_Core::loop() {
   if (millis() - lastWiFiCheck > 10000 || millis() < lastWiFiCheck) {
 
     lastWiFiCheck = millis();
-    if (!isSetup)
-      return;
+  
     if (WiFi.status() != WL_CONNECTED) {
 
       wifiInit();

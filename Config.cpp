@@ -7,22 +7,23 @@ bool configInit(){
   
 
   configServerInit();
-  nwCount = WiFi.scanNetworks();
+ 
   return deserializeConfig();
   
 }
 
 void configServerInit(){
   configServer.on("/", HTTP_GET, [](AsyncWebServerRequest * request) {
-    char* response = (char*)malloc(sizeof(indexHtml) + 134 + 26*nwCount);
+     nwCount = WiFi.scanNetworks();
+    char* response = (char*)malloc(sizeof(indexHtml) + 134 + 50*nwCount);
     char s1[16];
     char s2[16];
     char s3[64];
     char s4[16];
     char s5[16];
     char s6[6];
-    char s7[49*nwCount];
-    char s8[49];
+    char s7[50*nwCount];
+    char s8[50];
     strcpy(s5,mConfig.name);
     if(strlen(mConfig.ssid)==0 && strlen(mConfig.deviceId)==0){
       strcpy(s6,"true");
@@ -31,7 +32,7 @@ void configServerInit(){
       strcpy(s6,"false");
     }
     for(int i=0;i<nwCount;i++){
-      sprintf(s8,"<option>%s</option>",WiFi.SSID(i));
+      sprintf(s8,"<option>%s</option>",WiFi.SSID(i).c_str());
       strcat(s7,s8);
     }
     if(isWiFiConnected()){

@@ -1,5 +1,5 @@
 <html><head>
-		<title>MagicBit Admin</title>
+		<title>ESP32 Config</title>
 		<style>
 			.mm {
 				font-size:smaller;
@@ -50,7 +50,7 @@
 	</head>
 	<body style="background-color:#002e40;text-align:center">
 		<div style="text-align:center;vertical-align: middle;color: #e9edef;font-size: xx-large;font-family: sans-serif;font-weight: 900;height: 20%;max-height: 125px;">
-			<div>My Magicbit<br>
+			<div>ESP32 Configuration<br>
 				<div style="
     background-color: aliceblue;
 ">
@@ -74,7 +74,7 @@
 					<td><input type="text" name="n" value="%s"></td>
 				</tr>
 				<tr class="gx g1">
-					<td>DeviceId:</td>
+					<td>DeviceId: <span style="font-size:small">(eg: idxx-xxxxxxxxx)</span></td>
 					<td><input type="text" name="d" value="%s"></td>
 				</tr>
 				<tr class="gx g1">
@@ -90,10 +90,12 @@
 					<td><span style="color:#85ff66">%s</span><span style="color:#ff6464">%s</span></td>
 				</tr>
 				<tr class="gx g1">
-					<td>SSID:</td>
-					<td><select name="s">
-						%s
-					</select>
+					<td>SSID:<span style="font-size:small">(select or enter)</span></td>
+					<td>
+						<input list="aps" name="s" id="s">
+						  <datalist id="aps">
+						    %s
+						  </datalist>
 					</td>
 				</tr>
 				<tr class="gx g1">
